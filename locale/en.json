@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Prompt Lab",
+    "description": "Inspect the exact system prompt and tool catalog each request sent, and edit your appended instructions or tool descriptions."
+  }
+}

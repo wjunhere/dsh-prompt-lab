@@ -1,0 +1,5 @@
+# dsh-prompt-lab — 本包向 profile 注入的一行宿主插件。
+# id 同时是设置命名空间：客户端用 ctx.configForms.get('prompt-lab') 读写配置。
+- insert:
+    - id: prompt-lab
+      name: '@wjunhere/dsh-prompt-lab'

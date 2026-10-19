@@ -1,0 +1,81 @@
+{
+  "name": "@wjunhere/dsh-prompt-lab",
+  "version": "0.1.0",
+  "description": "会话顶栏的提示词与工具检查器：查看每轮实际发送的系统提示词、工具定义与请求载荷，并能编辑追加指令与工具描述。",
+  "license": "MIT",
+  "author": "wjunhere",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wjunhere/dsh-prompt-lab.git"
+  },
+  "homepage": "https://github.com/wjunhere/dsh-prompt-lab#readme",
+  "bugs": {
+    "url": "https://github.com/wjunhere/dsh-prompt-lab/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "system-prompt",
+    "tools",
+    "inspector"
+  ],
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "locale",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-api-session-controller",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-session",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "@deepseek-ai/schemastery": "3.18.5",
+    "esbuild": "0.25.10",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh": ">=0.2.1-0 <0.2.2-0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh": {
+      "optional": true
+    }
+  }
+}
